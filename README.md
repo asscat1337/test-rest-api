@@ -5,7 +5,7 @@
 - PostgreSQL
 - TypeORM
 - Redis
-- JWT (Passport)
+- JWT
 - Docker + Docker Compose
 
 ##### Структура проекта
