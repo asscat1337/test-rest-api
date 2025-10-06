@@ -180,13 +180,15 @@ docker compose up -d
 
 Параметры:
 
-  Параметр   Описание
-  ---------- --------------------------------------
-  `name`     фильтр по названию статьи (как пример)
-  `page`     номер страницы
-  `limit`    количество элементов
+| Параметр    |Описание |
+|-------------|---------------------------------------------|  
+| `name`      | фильтр по названию статьи (как пример).     |
+| `skip`      | количество элементов для пропуска           |
+| `limit`     | количество элементов                        |
+| `sortField` | Поле по которому данные будут сортироваться |
+| `sortOrder` | Порядок сортировки ( ASC | DESC)            |
 
-------------------------------------------------------------------------
+
 
 ## Кэширование (Redis)
 
@@ -194,10 +196,3 @@ docker compose up -d
 -   При `PATCH`, `DELETE` --- кэш **инвалидируется**
     (удаляется).
 
-
-
-!NOTE: У меня не получилось запустить тесты, хз почему, но впервые сталкиваюсь с подобной
-
-```
-vColumnTypeUndefinedError: Column type for Posts#user is not defined and cannot be guessed. Make sure you have turned on an "emitDecoratorMetadata": true option in tsconfig.json. Also make sure you have imported "reflect-metadata" on top of the main entry file in your application (before any entity imported).If you are using JavaScript instead of TypeScript you must explicitly provide a column type
-```
