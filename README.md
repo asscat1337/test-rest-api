@@ -176,7 +176,7 @@ docker compose up -d
 Доступны фильтры: `eq` | `neq` | `gt` | `gte` | `lt` | `lte` | `like` | `nlike` | `in` | `nin` | `isnull` | `isnotnull`
 Фильтры доступны по всем полям, если нужно найти автора статьи,то URL будет выглядить так:
 
-**GET /posts?skip=0&limit=15&user.name[neq]=admin**
+**GET /posts?skip=0&limit=15&user.name[neq]=admin&sortField=createdAt&sortOrder=asc**
 
 Параметры:
 
@@ -186,7 +186,7 @@ docker compose up -d
 | `skip`      | количество элементов для пропуска           |
 | `limit`     | количество элементов                        |
 | `sortField` | Поле по которому данные будут сортироваться |
-| `sortOrder` | Порядок сортировки ( ASC | DESC)            |
+| `sortOrder` | Порядок сортировки ( `ASC` or `DESC`)       |
 
 
 
