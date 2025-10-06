@@ -35,7 +35,7 @@ src
 │   │   └── user.model.ts
 │   └── typeorm.ts
 ├── main.ts
-├── post                           #Модуль для авторизации/регистрации пользователя   
+├── post                           #Модуль для постов   
 │   ├── dto
 │   │   ├── post-validator.dto.ts
 │   │   └── post.dto.ts
