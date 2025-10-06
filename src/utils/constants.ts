@@ -1,0 +1,3 @@
+export const SALT_ROUND = 10;
+export const REDIS_MODULE_OPTIONS = 'REDIS_MODULE_OPTIONS';
+export const REDIS_TOKEN = 'REDIS_TOKEN';

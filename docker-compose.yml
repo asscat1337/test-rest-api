@@ -1,0 +1,45 @@
+version: "3.9"
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: api
+    ports:
+      - "3000:3000"
+    env_file: [.env] 
+    depends_on:
+      - entrypoint
+      - postgresdb
+      - redisdb
+  postgresdb:
+    image: postgres:18-alpine
+    container_name: postgresdb
+    ports: 
+     - 5432:5432
+    volumes: 
+      - ./volumes/postgres:/var/lib/postgresql/data/pgdata
+    restart: unless-stopped
+    networks: 
+     - network
+    depends_on:
+      - entrypoint
+    env_file: [.env]
+  redisdb:
+    image: docker.io/bitnamilegacy/redis:8.2.1
+    container_name: redisdb
+    command: redis-server --requirepass ${REDIS_PASSWORD}
+    ports: 
+     - 6379:6379
+    networks: 
+     - network
+    volumes:
+      - ./volumes/redis:/usr/local/etc/redis 
+    env_file: [.env]
+    depends_on:
+      - entrypoint
+    environment:
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+networks:
+  network:
+    driver: bridge
